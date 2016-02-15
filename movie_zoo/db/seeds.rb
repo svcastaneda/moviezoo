@@ -26,8 +26,8 @@ end
   # get random movie
   # create new comment on random movie
   movie = Movie.find(rand(1..Movie.count))
-  movie.comments.create(body: Faker::Lorem, user_id:(rand(1..User.count)))
+  movie.comments.create(body: Faker::Lorem.paragraph, user_id:(rand(1..User.count)))
 
   review = Review.find(rand(1..Review.count))
-  review.comments.create(body: Faker::Lorem, user_id:(rand(1..User.count)))
+  review.comments.create(body: Faker::Lorem.paragraph, user_id:(rand(1..User.count)))
 end
