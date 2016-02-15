@@ -11,7 +11,7 @@ end
 end
 
 30.times do
-  Review.create(user_id: rand(0..50), movie_id: rand(0..50), body: Faker::Lorem.paragraph, rating: rand(1..5))
+  Review.create(user_id: rand(1..50), movie_id: rand(1..50), body: Faker::Lorem.paragraph, rating: rand(1..5))
 end
 
 20.times do
@@ -19,10 +19,15 @@ end
 end
 
 30.times do
-  Classification.create(movie_id: rand(0..50), genre_id:(rand(0..20)))
+  Classification.create(movie_id: rand(1..50), genre_id:(rand(1..20)))
 end
 
 50.times do
-  movies.comments.create(body: Faker::Lorem, user_id:(rand(0..50)))
-  reviews.comments.create(body: Faker::Lorem, user_id:(rand(0..50)))
+  # get random movie
+  # create new comment on random movie
+  movie = Movie.find(rand(1..Movie.count))
+  movie.comments.create(body: Faker::Lorem, user_id:(rand(1..User.count)))
+
+  review = Review.find(rand(1..Review.count))
+  review.comments.create(body: Faker::Lorem, user_id:(rand(1..User.count)))
 end

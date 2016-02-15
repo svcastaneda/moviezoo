@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'users#temp'
   resources :users
 
   resources :movies, except: [:destroy, :edit]
