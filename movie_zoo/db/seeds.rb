@@ -19,10 +19,10 @@ end
 end
 
 30.times do
-  Classification.create(movie_id: rand(0..50), genre_id(rand(0..20)))
+  Classification.create(movie_id: rand(0..50), genre_id:(rand(0..20)))
 end
 
 50.times do
-  movies.comments.create(body: Faker::Lorem, user_id(rand(0..50)))
-  reviews.comments.create(body: Faker::Lorem, user_id(rand(0..50)))
+  movies.comments.create(body: Faker::Lorem, user_id:(rand(0..50)))
+  reviews.comments.create(body: Faker::Lorem, user_id:(rand(0..50)))
 end
