@@ -13,3 +13,7 @@
 .nav-wrapper {
 	padding: 0 1em 0 2em;
 }
+
+.movie_title {
+  font-size: 0.5em;
+}
