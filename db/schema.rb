@@ -60,8 +60,7 @@ ActiveRecord::Schema.define(version: 20160215231022) do
     t.integer  "user_id"
     t.integer  "movie_id"
     t.string   "body"
-    t.string   "rating"
-    t.string   "integer"
+    t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
