@@ -1,0 +1,7 @@
+<h4>Recently added films</h4>
+
+<div class="row">
+<% @movies.each do |movie| %>
+  <%= render partial: 'movie_card', locals: {movie: movie} %>
+<% end %>
+</div>
