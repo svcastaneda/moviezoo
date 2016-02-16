@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @movies = Movie.order('created_at DESC').limit(6)
   end
 
   def new
@@ -17,7 +18,7 @@ class MoviesController < ApplicationController
     @movie.imdb_id = params[:imdb_id]
 
     if @movie.save
-      add_genres(movie.genre, @movie.id)
+      add_genres(movie.genre, @movie.id) if movie.genre
       redirect_to '/'
     else
       render template: 'movies/new'
