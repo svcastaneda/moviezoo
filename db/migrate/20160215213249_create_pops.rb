@@ -3,7 +3,7 @@ class CreatePops < ActiveRecord::Migration
     create_table :pops do |t|
       t.integer :review_id
       t.integer :user_id
-      t.binary :popped
+      t.integer :pops, default: 0
 
       t.timestamps null: false
     end
