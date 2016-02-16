@@ -21,7 +21,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    
+    if @user && @user == current_user
+      render template: 'users/edit'
+    else
+      redirect_to '/401'
+    end
   end
 
   def update

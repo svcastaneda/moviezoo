@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   get '/login', to: 'users#login', as: 'login_page'
   post '/login', to: 'users#new_session', as: 'login'
   delete '/logout', to: 'users#logout', as: 'logout'
+  
+  
+  # custom error pages
+  get '/401', to: 'errors#unauthorized'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
