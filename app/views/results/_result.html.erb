@@ -2,9 +2,9 @@
   <div class='poster_image'></div>
   <input type="hidden" value="<%= imdb_id %>">
   <% if movie_exists(imdb_id) %>
-    <h5><%= link_to movie_path(movie_exists(imdb_id)), class: 'movie_title' %></h5>
+    <h3><%= link_to title, movie_path(movie_exists(imdb_id)), class: 'movie_title' %></h3>
   <% else %>
-    <h3><%= link_to title, new_movie_path, method: :post, class: 'movie_title'%></h3>
+    <h3><%= link_to title, movies_path(imdb_id: imdb_id), method: :post, class: 'movie_title'%></h3>
   <% end %>
   <p class='movie_year'><%= year %></p>
 </div>
