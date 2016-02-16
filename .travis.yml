@@ -1,11 +1,23 @@
 language: ruby
 script: 'ci/travis.rb'
+env:
+  - DB=postgresql
 before_install:
   - gem install bundler
 before_script:
-  - bundle
+commands = [
+  'be rake db:drop',
+  'be rake db:create',
+  'be rake db:migrate',
+  'bin/rake test test/'
+]
+
+commands.each do |command|
+  system("#{command} > /dev/null 2>&1")
+end
 rvm:
  - "2.0.0"
  - rbx
+
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
