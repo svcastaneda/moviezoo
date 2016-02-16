@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20160215231022) do
   create_table "pops", force: :cascade do |t|
     t.integer  "review_id"
     t.integer  "user_id"
-    t.binary   "popped"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.binary   "popped",     default: "0"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "reviews", force: :cascade do |t|
