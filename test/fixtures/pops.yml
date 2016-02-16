@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  review_id: 
-  user_id: 1
-  popped: 
+  review_id: MyInteger
+  user_id: MyInteger
+  popped: MyInteger
 
 two:
-  review_id: 
-  user_id: 1
-  popped: 
+  review_id: MyInteger
+  user_id: MyInteger
+  popped: MyInteger
