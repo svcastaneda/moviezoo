@@ -1,8 +1,12 @@
 language: ruby
+script: 'ci/travis.rb'
+before_install:
+  - gem install bundler
+before_script:
+  - bundle update
+  - bundle
 rvm:
- - "1.8.7"
- - "1.9.2"
- - "1.9.3"
+ - "2.0.0"
  - rbx
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
