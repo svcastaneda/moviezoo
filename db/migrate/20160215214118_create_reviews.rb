@@ -4,8 +4,8 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :user_id
       t.integer :movie_id
       t.string :body
-      t.string :rating
-      t.string :integer
+      t.integer :rating
+     
 
       t.timestamps null: false
     end
