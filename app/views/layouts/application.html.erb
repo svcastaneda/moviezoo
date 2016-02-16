@@ -2,22 +2,24 @@
 <html>
 <head>
   <title>Movie Zoo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
 
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<nav>
-    <div class="nav-wrapper">
-			<%= link_to 'Logo', root_path, class: 'brand-logo' %>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper teal">
+			<%= link_to 'Movie Zoo', root_path, class: 'brand-logo' %>
+      <ul class="right">
 		    <% if current_user -%>
 		      <li><%= link_to 'logout', logout_path, method: :delete %></li>
 		    <% else %>
@@ -25,18 +27,11 @@
 		      <li><%= link_to 'create account', new_user_path %></li>
 		    <% end %>
       </ul>
-      <ul id="nav-mobile" class="side-nav">
-		    <% if current_user -%>
-		      <li><%= link_to 'logout', logout_path, method: :delete %></li>
-		    <% else %>
-		      <li><%= link_to 'login', login_page_path %></li>
-		      <li><%= link_to 'create account', new_user_path %></li>
-		    <% end %>
-      </ul>
+     
     </div>
   </nav>
-
+<div class="container center-align">
 <%= yield %>
-
+</div>
 </body>
 </html>
