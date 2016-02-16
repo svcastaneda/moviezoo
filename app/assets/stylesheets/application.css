@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/*.movie-summary {
+  max-width: 33%
+  height: auto;
+}*/

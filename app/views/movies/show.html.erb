@@ -1,0 +1,17 @@
+<div class='row'>
+  <div class='col s6'><img class='movie-summary' src="<%=@movie.poster%>"></div>
+  <div><%=@movie.title%></div>
+  <div><%=@movie.plot%></div>
+</div>
+
+<div>
+  <%if @movie.reviews.length == 0%>
+    <p>No reviews for this movie!</p>
+  <%else%>
+    <%@movie.reviews.each do |review|%>
+      <%=review%>
+    <%end%>
+  <%end%>
+</div>
+
+
