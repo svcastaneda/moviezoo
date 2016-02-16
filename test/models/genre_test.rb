@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GenreTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "the title" do
+    assert true
+  end
 end
