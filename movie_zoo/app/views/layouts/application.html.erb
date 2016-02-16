@@ -13,6 +13,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if current_user -%>
+      <%= link_to 'logout', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'login', login_page_path %>
+      <%= link_to 'create account', new_user_path %>
+    <% end %>
+  </header>
 
 <%= yield %>
 

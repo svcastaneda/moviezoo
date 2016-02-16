@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :reviews, except: :index
 
   resources :comments, except: :index
+
+  get '/login', to: 'users#login', as: 'login_page'
+  post '/login', to: 'users#new_session', as: 'login'
+  delete '/logout', to: 'users#logout', as: 'logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

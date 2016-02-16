@@ -41,12 +41,36 @@ class UsersController < ApplicationController
     redirect_to '/' #TBD
   end
 
+  def login
+    if current_user
+      redirect_to '/'
+    else
+      render template: 'users/login'
+    end
+  end
+
+  def new_session
+    @user = User.find_by(username: user_params[:username])
+    if @user && @user.authenticate(user_params[:password])
+      session[:user_id] = @user.id
+      redirect_to '/'
+    else
+      @errors = ['Login credentials not valid.']
+      render template: 'users/login'
+    end
+  end
+
+  def logout
+    session.delete(:user_id)
+    redirect_to root_url
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
 
   def current_user
-    User.find(session[:user_id])
+    User.find_by(id: session[:user_id])
   end
 end
