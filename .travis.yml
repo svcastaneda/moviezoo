@@ -3,7 +3,6 @@ script: 'ci/travis.rb'
 before_install:
   - gem install bundler
 before_script:
-  - bundle update
   - bundle
 rvm:
  - "2.0.0"
