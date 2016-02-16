@@ -31,6 +31,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# imdb api
+# Gem provides the following:
+
+# :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
+# :poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
+
+gem 'omdb'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
