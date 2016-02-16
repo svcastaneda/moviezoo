@@ -4,12 +4,11 @@ one:
   user_id: 
   movie_id: 1
   body: MyString
-  rating: MyString
-  integer: MyString
+  rating: MyInteger
+ 
 
 two:
   user_id: 
   movie_id: 1
   body: MyString
-  rating: MyString
-  integer: MyString
+  rating: MyInteger
