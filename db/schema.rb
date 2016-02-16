@@ -42,12 +42,15 @@ ActiveRecord::Schema.define(version: 20160215231022) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",      null: false
-    t.string   "summary",    null: false
+    t.string   "plot"
     t.integer  "year",       null: false
     t.string   "poster"
+    t.string   "imdb_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "movies", ["imdb_id"], name: "index_movies_on_imdb_id", using: :btree
 
   create_table "pops", force: :cascade do |t|
     t.integer  "review_id"

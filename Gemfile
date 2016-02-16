@@ -37,6 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 # :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
 # :poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
 
+gem 'omdbapi'
 gem 'omdb'
 
 # Use Capistrano for deployment
