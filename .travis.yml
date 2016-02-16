@@ -1,5 +1,5 @@
 language: ruby
-script: 'ci/travis.rb'
+# script: 'ci/travis.rb'
 env:
   - DB=postgresql
 before_install:
