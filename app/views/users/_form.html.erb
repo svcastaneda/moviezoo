@@ -1,0 +1,22 @@
+<div class="row"><div class="col s6">
+  <%= form_for @user do |f| %>
+		<div class="input-field">
+	    <%= f.text_field :username %>
+			<%= f.label :username %>
+		</div>
+
+		<div class="input-field">
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+		</div>
+
+		<div class="input-field">
+	    <%= f.label :password_confirmation %>
+	    <%= f.password_field :password_confirmation %>
+		</div>
+
+		<div class="input-field">
+    	<%= f.submit 'submit', class: 'btn' %>
+		</div>
+  <% end %>
+</div>
