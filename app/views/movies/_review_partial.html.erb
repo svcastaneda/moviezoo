@@ -1,12 +1,12 @@
 <div class='vote block center'>
   <% if user_voted?(current_user) %>
-    <%= link_to "POP IT", update_kern_path(review_id: review.id, id: get_pop(review), type: 'upvote'), html: {name: 'upvote', class: 'upvote'}, method: :patch %><br>
+    <%= link_to image_tag("pop 2.png", size: "35x35"), update_kern_path(review_id: review.id, id: get_pop(review), type: 'upvote'), html: {name: 'upvote', class: 'upvote'}, method: :patch %><br>
     <span class='count'><%= review.pops.sum(:popped) %></span><br>
-    <%= link_to "KERNZ", update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'downvote', class: 'downvote'}, method: :patch %><br>
+    <%= link_to image_tag("kernz 2.png", size: "20x20"), update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'downvote', class: 'downvote'}, method: :patch %><br>
   <% else %>
-    <%= link_to "POP IT", kernz_path(review_id: review.id, type: 'upvote'), html: {name: 'upvote', class: 'upvote new_pop vote'}, method: :post %><br>
+    <%= link_to image_tag("pop 2.png", size: "35x35"), kernz_path(review_id: review.id, type: 'upvote'), html: {name: 'upvote', class: 'upvote new_pop vote'}, method: :post %><br>
     <span class='count'><%= review.pops.sum(:popped) %></span><br>
-    <%= link_to "KERNZ", kernz_path(review_id: review.id, type: 'downvote'), html: {name: 'downvote', class: 'downvote new_pop vote'}, method: :post %><br>
+    <%= link_to image_tag("kernz 2.png", size: "20x20"), kernz_path(review_id: review.id, type: 'downvote'), html: {name: 'downvote', class: 'downvote new_pop vote'}, method: :post %><br>
   <% end %>
 </div>
 
