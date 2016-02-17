@@ -3,6 +3,7 @@
   <div><%=@movie.title%></div>
   <div><%=@movie.plot%></div>
   <div><%=link_to "#{@movie.comments.length} comments", movie_comments_path(@movie) %></div>
+  <div><%=link_to "Comment on this Movie", new_movie_comment_path(@movie)%></div>
 </div>
 
 <div>
