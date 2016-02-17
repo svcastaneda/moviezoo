@@ -61,3 +61,7 @@ header h4 {
   margin: 0;
   display: inline-block;
 }
+
+.card .card-image img {
+  top: -10%;
+}

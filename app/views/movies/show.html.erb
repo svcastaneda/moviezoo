@@ -7,11 +7,26 @@
 </div>
 
 <div>
+  <%= form_for :review, url: reviews_path do |f| %>
+    <div class='row'>
+      <%= f.label :body, class: 's12' %>
+      <%= f.text_area :body, class: 'review_form_body s5' %>
+    </div>
+    <div class='row'>
+      <%= f.label :rating, 'Rating:', class: 'col s1' %>
+      <%= f.range_field :rating, {in: 1..5, step: 1, class: 'col s3'} %>
+    </div>
+
+    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+    <%= f.submit 'submit', class: 'btn' %>
+  <% end %>
+
+
   <ul>
   <%if @movie.reviews.length == 0%>
     <p>No reviews for this movie!</p>
   <%else%>
-   <%@movie.reviews.each do |review|%>
+    <% @movie.reviews.each do |review| %>
        <li><%=render partial: 'review_partial', locals:{review: review} %></li>
     <%end%>
   <%end%>
