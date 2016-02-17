@@ -12,7 +12,6 @@
 
 <div class='left-align'>
 	<% if current_user %>
-<<<<<<< HEAD
     <% if !user_reviewed?(@movie.id) %>
   	  <%= form_for :review, url: reviews_path, html: {id: :new_review_form}, remote: true do |f| %>
   	    <div class='row'>
@@ -21,20 +20,9 @@
   	    </div>
   	    <div class='row'>
   	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
-  	      <%= f.range_field :rating, {in: 1..5, step: 1, class: 'col s3'} %>
+  	      <span id="rating_value">3</span>
+          <%= f.range_field :rating, min: 1, max: 5, class: 'col s3', id: "slider" %>
   	    </div>
-=======
-	  <%= form_for :review, url: reviews_path, html: {id: :new_review_form}, remote: true do |f| %>
-	    <div class='row'>
-	      <%= f.label :body, class: 's12' %>
-	      <%= f.text_area :body, class: 'review_form_body s5' %>
-	    </div>
-	    <div class='row'>
-	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
-        <span id="rating_value">3</span>
-	      <%= f.range_field :rating, min: 1, max: 5, class: 'col s3', id: "slider" %>
-	    </div>
->>>>>>> 000452485e4211b46eb22a3bcdeb241a864f9725
 
   	    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
   	    <%= f.submit 'submit', class: 'btn' %>
