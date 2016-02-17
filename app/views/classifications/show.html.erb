@@ -1,0 +1,5 @@
+<h3><%= @genre.title %></h3>
+
+<% @movies.each do |movie| %>
+  <%= render partial: 'movies/movie_card', locals: {movie: movie} %>
+<% end %>
