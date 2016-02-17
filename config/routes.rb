@@ -10,6 +10,18 @@ Rails.application.routes.draw do
 
   resources :comments, except: :index
 
+  resources :movies do
+    resources :comments
+  end
+
+  resources :reviews do
+    resources :comments
+  end
+
+  resources :reviews do
+    resources :pops
+  end
+
   resources :classifications, only: [:show, :index]
 
   get '/login', to: 'users#login', as: 'login_page'

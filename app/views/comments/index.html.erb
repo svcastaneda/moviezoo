@@ -1,0 +1,7 @@
+<div>
+  <%@comments.each do |comment|%>
+    <%user = User.find(comment.user_id)%>
+    <%=user.username%>
+    <%=comment.body%>
+  <%end%>
+</div>

@@ -2,16 +2,19 @@
   <div class='col s6'><img class='movie-summary' src="<%=@movie.poster%>"></div>
   <div><%=@movie.title%></div>
   <div><%=@movie.plot%></div>
+  <div><%=link_to "#{@movie.comments.length} comments", movie_comments_path(@movie) %></div>
 </div>
 
 <div>
+  <ul>
   <%if @movie.reviews.length == 0%>
     <p>No reviews for this movie!</p>
   <%else%>
-    <%@movie.reviews.each do |review|%>
-      <%=review%>
+   <%@movie.reviews.each do |review|%>
+       <li><%=render partial: 'review_partial', locals:{review: review} %></li>
     <%end%>
   <%end%>
+  </ul>
 </div>
 
 
