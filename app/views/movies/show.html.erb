@@ -14,9 +14,9 @@
 	<% if current_user %>
     <% if !user_reviewed?(@movie.id) %>
   	  <%= form_for :review, url: reviews_path, html: {id: :new_review_form}, remote: true do |f| %>
-  	    <div class='row'>
-  	      <%= f.label :body, class: 's12' %>
-  	      <%= f.text_area :body, placeholder: 'Write a review', class: 'review_form_body s5' %>
+  	    <div class='row review_form_body'>
+  	      <%= f.label :body, 'Write a review', class: 's1' %><br>
+  	      <%= f.text_area :body, placeholder: "This movie is poppin!", class: ' s12' %>
   	    </div>
   	    <div class='row'>
   	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
@@ -27,6 +27,7 @@
   	    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
   	    <%= f.submit 'submit', class: 'btn' %>
   	  <% end %>
+      <hr>
     <% end %>
 	<% end %>
 

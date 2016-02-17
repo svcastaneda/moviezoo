@@ -16,5 +16,8 @@
   <%= "TRUSTED USER" if user.trusted%>
   <div class='comment-pad'><%=review.body%></div>
   <div class='buttons-pad'><%=link_to "#{review.comments.length} comments", review_comments_path(review) %>
-  <%=link_to "delete", review_path(review), method: :delete, class: 'btn' %></div>
+
+  <% if review.user_id == current_user.id %>
+    <%=link_to "delete review", review_path(review), method: :delete, class: 'btn' %></div>
+  <% end %>
 </div>
