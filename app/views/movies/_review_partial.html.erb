@@ -1,7 +1,7 @@
 <%if user_voted?(review.id)%>
-  <%=link_to "POPIT", review_pop_path(review, id: Pop.where(review_id: review.id, user_id: current_user.id), value: 1, movie_id: @movie.id), method: :patch %>
+  <%=link_to "POPIT", review_pop_path(review, id: Pop.where(review_id: review.id, user_id: current_user.id), value: 1, movie_id: movie.id), method: :patch %>
 <%else%>
-  <%=link_to "POPIT", review_pops_path(review, value: 1, movie_id: @movie.id), method: :post %>
+  <%=link_to "POPIT", review_pops_path(review, value: 1, movie_id: movie.id), method: :post %>
 <%end%>
 <% if review.pops.sum(:popped) > 0 %>
   <%= "Popped" %>
@@ -9,9 +9,9 @@
   <%= "Kernz" %>
 <% end %>
 <%if user_voted?(review.id)%>
- <%=link_to "KEEP IT KERNZ", review_pop_path(review, params[:id], value: -1, movie_id: @movie.id), method: :patch %>
+ <%=link_to "KEEP IT KERNZ", review_pop_path(review, id: Pop.where(review_id: review.id, user_id: current_user.id), value: -1, movie_id: movie.id), method: :patch %>
 <%else%>
-  <%=link_to "KEEP IT KERNZ", review_pops_path(review, value: -1, movie_id: @movie.id), method: :post %>
+  <%=link_to "KEEP IT KERNZ", review_pops_path(review, value: -1, movie_id: movie.id), method: :post %>
 <%end%>
 
 <%user=User.find(review.user_id)%>
