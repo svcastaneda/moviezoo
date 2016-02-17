@@ -7,9 +7,15 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @commented_thing = @scope
   end
 
   def create
+    @commented_thing = @scope
+    comment = @commented_thing.comments.new(body: params[:comment][:body], user_id: current_user.id)
+    if comment.save
+      redirect_to movie_path(@commented_thing)
+    end
   end
 
   def edit
@@ -19,6 +25,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+
   end
 
   protected
@@ -32,4 +39,9 @@ class CommentsController < ApplicationController
         Comment
       end
     end
+  private
+     def current_user
+    User.find_by(id: session[:user_id])
+  end
+
 end
