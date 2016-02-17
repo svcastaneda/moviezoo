@@ -1,8 +1,5 @@
-<%= form_for([movie, movie.comments.build]) do |f| %>
+<%= form_for([@commented_thing, @commented_thing.comments.build]) do |f| %>
      <%= f.label :body %><br>
     <%= f.text_area :body %>
-
-
     <%= f.submit  %>
-
 <% end %>

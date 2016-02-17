@@ -7,8 +7,7 @@
 		<p><%=@movie.plot%></p>
 	</div>
 	<hr>
-  <div><%=link_to "#{@movie.comments.length} comments", movie_comments_path(@movie) %></div>
-  <div><%=link_to "Comment on this Movie", new_movie_comment_path(@movie)%></div>
+  <div><%=link_to " View comments (#{@movie.comments.length})", movie_comments_path(@movie) %></div>
 </div>
 
 <div class='left-align'>

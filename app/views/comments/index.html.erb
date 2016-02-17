@@ -1,7 +1,14 @@
-<h4>All comments for <%=@commented_thing.title%></h4>
+<h4>All discussions for <%=@commented_thing.title%></h4>
 <div>
   <ul>
   <%= link_to "← Back to Movie", movie_path(@commented_thing)%>
+  <% if current_user %>
+
+  <%= render partial: 'comment_form' %>
+
+  <% end %>
+
+
   <%@comments.each do |comment|%>
     <li>
       <%user = User.find(comment.user_id)%>
