@@ -1,28 +1,20 @@
-<% if user_voted?(current_user) %>
-  <span class='popit'>POP IT</span><br>
-  <span class='count'><%= review.pops.sum(:popped) %></span><br>
-  <span class='kernz'>KERNZ</span><br>
-<% else %>
-  <span class='popit new-pop'>POP IT</span><br>
-  <span class='count'><%= review.pops.sum(:popped) %></span><br>
-  <span class='kernz new-pop'>KERNZ</span><br>
-<% end %>
+<div class='vote block center'>
+  <% if user_voted?(current_user) %>
+    <%= link_to "POP IT", update_kern_path(review_id: review.id, id: get_pop(review), type: 'upvote'), html: {name: 'upvote', class: 'upvote'}, method: :patch %><br>
+    <span class='count'><%= review.pops.sum(:popped) %></span><br>
+    <%= link_to "KERNZ", update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'downvote', class: 'downvote'}, method: :patch %><br>
+  <% else %>
+    <%= link_to "POP IT", kernz_path(review_id: review.id, type: 'upvote'), html: {name: 'upvote', class: 'upvote new_pop vote'}, method: :post %><br>
+    <span class='count'><%= review.pops.sum(:popped) %></span><br>
+    <%= link_to "KERNZ", kernz_path(review_id: review.id, type: 'downvote'), html: {name: 'downvote', class: 'downvote new_pop vote'}, method: :post %><br>
+  <% end %>
+</div>
 
-<% if user_voted?(current_user) %>
-  <%= link_to "POP IT", update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'upvote', class: 'upvote vote'} %><br>
-  <span class='count'><%= review.pops.sum(:popped) %></span><br>
-  <%= link_to "KERNZ", update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'downvote', class: 'downvote vote'} %><br>
-<% else %>
-  <%= link_to "POP IT", kernz_path(review_id: review.id, type: 'upvote'), html: {name: 'upvote', class: 'upvote new_pop vote'} %><br>
-  <span class='count'><%= review.pops.sum(:popped) %></span><br>
-  <%= link_to "KERNZ", kernz_path(review_id: review.id, type: 'downvote'), html: {class: 'downvote new_pop vote'} %><br>
-<% end %>
-
-<%user=User.find(review.user_id)%>
-<%=user.username%>
-<%= "TRUSTED USER" if user.trusted%>
-<%=review.rating%>
-<%=review.body%>
-<%=link_to "#{review.comments.length} comments", review_comments_path(review) %>
-
-<%=link_to "delete", review_path(review), method: :delete, class: 'btn' %>
+<div class='review block'>
+  <%user=User.find(review.user_id)%>
+  <h5 class='noMargin'><%=user.username%> rated this film a: <%=review.rating%> </h5>
+  <%= "TRUSTED USER" if user.trusted%>
+  <div class='comment-pad'><%=review.body%></div>
+  <div class='buttons-pad'><%=link_to "#{review.comments.length} comments", review_comments_path(review) %>
+  <%=link_to "delete", review_path(review), method: :delete, class: 'btn' %></div>
+</div>

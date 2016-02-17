@@ -1,12 +1,26 @@
 class PopsController < ApplicationController
   def create
-    Pop.create!(popped: params[:value], user_id: current_user.id, review_id: params[:review_id])
+    review = Review.find_by(id: params[:review_id])
+    pop = Pop.new(popped: params[:value], user_id: current_user.id, review_id: params[:review_id])
+    if params[:type] == 'upvote'
+      pop.popped = 1
+    elsif params[:type] == 'downvote'
+      pop.popped = -1
+    end
+    pop.save
+    redirect_to movie_path(review.movie_id)
   end
 
   def update
-    pop = Pop.where(review_id: params[:review_id], user_id: current_user.id)
-
-    pop.popped = params[:value]
+    review = Review.find_by(id: params[:review_id])
+    pop = Pop.find_by(user_id: current_user.id, review_id: params[:review_id])
+    if params[:type] == 'upvote'
+      pop.popped = 1
+    elsif params[:type] == 'downvote'
+      pop.popped = -1
+    end
+    pop.save
+    redirect_to movie_path(review.movie_id)
   end
 
   private

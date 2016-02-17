@@ -13,15 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-.name-pad {
-  padding-left: 3%;
-}
-
-.comment-pad{
-  padding-left: 7%;
-}
-
-.comment-box{
-  border-left: 1.5px solid #8eb2af;
-}

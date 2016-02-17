@@ -1,5 +1,5 @@
 <%= form_for([@commented_thing, @commented_thing.comments.build]) do |f| %>
-     <%= f.label :body %><br>
+    <%= f.label :body %><br>
     <%= f.text_area :body %>
     <%= f.submit  class: 'btn' %>
 <% end %>

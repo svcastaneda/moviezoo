@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
 
     if @movie.save
       add_genres(movie.genre, @movie.id) if movie.genre
-      redirect_to '/'
+      redirect_to movie_path(@movie)
     else
       render template: 'movies/new'
     end
