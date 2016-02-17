@@ -36,10 +36,10 @@
   </nav>
   <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
     <ul id="nav-mobile" class="side-nav fixed">
-      <li><a href="#!">View All Movies</a></li>
+      <li><%= link_to 'View All Movies', classifications_path %></li>
       <li>Genres</li>
       <% get_genres.each do |genre| -%>
-        <li class="genre">• <%= genre.title %></li>
+        <li class="genre"><%= link_to genre.title, classification_path(genre.id) %></li>
       <% end %>
     </ul>
 </header>

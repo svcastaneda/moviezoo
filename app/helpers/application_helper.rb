@@ -1,5 +1,5 @@
 module ApplicationHelper
   def get_genres
-    p Genre.all
+    Genre.all
   end
 end
