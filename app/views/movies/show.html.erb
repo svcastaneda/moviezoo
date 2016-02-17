@@ -19,7 +19,8 @@
 	    </div>
 	    <div class='row'>
 	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
-	      <%= f.range_field :rating, {in: 1..5, step: 1, class: 'col s3'} %>
+        <span id="rating_value">3</span>
+	      <%= f.range_field :rating, min: 1, max: 5, class: 'col s3', id: "slider" %>
 	    </div>
 
 	    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
