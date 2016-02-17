@@ -54,3 +54,10 @@ main {
   height: 2.5em;*/
   text-indent: 15px;
 }
+
+header h4 {
+  font-size: 2rem;
+  line-height: 110%;
+  margin: 0;
+  display: inline-block;
+}

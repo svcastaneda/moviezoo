@@ -1,5 +1,6 @@
 <h3>All Movies</h3>
-
+<div class="row">
 <% @movies.each do |movie| %>
   <%= render partial: 'movies/movie_card', locals: {movie: movie} %>
 <% end %>
+</div>
