@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @comment = Comment.last
-    @user= user = User.find(@comment.user_id)
+    # @user= User.find(@comment.user_id)
     render template: 'movies/show'
   end
 
@@ -40,7 +40,9 @@ class MoviesController < ApplicationController
   def add_genres(genres_string, movie_id)
     genres_string.split(', ').each do |genre|
       genre_obj = Genre.find_by(title: genre)
-      Classification.create(genre_id: genre_obj.id, movie_id: movie_id)
+      unless genre_obj == nil
+        Classification.create(genre_id: genre_obj.id, movie_id: movie_id)
+      end
     end
   end
 end

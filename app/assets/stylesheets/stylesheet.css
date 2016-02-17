@@ -47,6 +47,7 @@
 
 main {
   padding-left: 7em;
+
 }
 
 .genre {
@@ -65,3 +66,16 @@ header h4 {
 .card .card-image img {
   top: -10%;
 }
+
+.movie-summary {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.movie-title {
+  line-height: 3px
+}
+
+.card .card-content .card-title {
+  line-height: 20px;
+}
+
