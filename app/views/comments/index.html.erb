@@ -1,14 +1,20 @@
-<h4>All discussions for <%=@commented_thing.title%></h4>
+<%if params[:movie_id] %>
+  <h4>All discussions for <%=@commented_thing.title%></h4>
+<%else%>
+  <%user = User.find(@commented_thing.user_id)%>
+  <h4>All discussions for <%=user.username%>'s review:</h4>
+  <div class='comment-box'>
+    <div class='comment-pad'><%=@commented_thing.body%></div>
+  </div>
+<%end%>
+
 <div>
+
   <ul>
   <%= link_to "← Back to Movie", movie_path(@commented_thing)%>
   <% if current_user %>
-
   <%= render partial: 'comment_form' %>
-
   <% end %>
-
-
   <%@comments.each do |comment|%>
     <li>
       <%user = User.find(comment.user_id)%>

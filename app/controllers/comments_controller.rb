@@ -18,7 +18,11 @@ class CommentsController < ApplicationController
     @commented_thing = @scope
     comment = @commented_thing.comments.new(body: params[:comment][:body], user_id: current_user.id)
     if comment.save
-      redirect_to movie_comments_path(@commented_thing)
+      if comment.commentable_type == 'Movie'
+        redirect_to movie_comments_path(@commented_thing)
+      else
+        redirect_to review_comments_path(@commented_thing)
+      end
     end
   end
 
