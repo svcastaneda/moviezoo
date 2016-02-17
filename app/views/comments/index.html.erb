@@ -1,7 +1,14 @@
+<h4>All comments for <%=@commented_thing.title%></h4>
 <div>
+  <ul>
   <%@comments.each do |comment|%>
-    <%user = User.find(comment.user_id)%>
-    <%=user.username%>
-    <%=comment.body%>
+    <li>
+      <%user = User.find(comment.user_id)%>
+        <div class='comment-box'>
+        <div class='name-pad'><h5><%=user.username%></h5></div>
+        <div class='comment-pad'><%=comment.body%></div>
+        <div class='comment-box>'
+    </li>
   <%end%>
+  </ul>
 </div>

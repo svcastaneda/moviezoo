@@ -14,7 +14,15 @@
  *= require_self
  */
 
-/*.movie-summary {
-  max-width: 33%
-  height: auto;
-}*/
+.name-pad {
+  padding-left: 5%
+}
+
+.comment-pad{
+  padding-left: 10%;
+}
+
+.comment-box{
+/*  background-color: #B2DFDB;
+*/  border-left: 1.5px solid #8eb2af;
+}
