@@ -18,9 +18,11 @@
 <body>
   <header>
 	<nav class="top-nav teal">
+    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a>
     <div class="container">
+
       <div class="nav-wrapper teal">
-  			<%= link_to 'Movie Zoo', root_path, class: 'page-title' %>
+  			<h4><%= link_to 'Movie Zoo', root_path, class: 'page-title' %></h4>
         <ul class="right">
             <li><%= link_to 'browse movies', new_movie_path %></li>
           <% if current_user -%>
@@ -29,12 +31,14 @@
   		      <li><%= link_to 'login', login_page_path %></li>
   		      <li><%= link_to 'create account', new_user_path %></li>
   		    <% end %>
+          <li class="search">
+        </li>
         </ul>
 
       </div>
     </div>
   </nav>
-  <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+
     <ul id="nav-mobile" class="side-nav fixed">
       <li><%= link_to 'View All Movies', classifications_path %></li>
       <li>Genres</li>
