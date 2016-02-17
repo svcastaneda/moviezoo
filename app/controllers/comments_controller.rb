@@ -7,7 +7,11 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @commented_thing = @scope
+    if current_user
+      @commented_thing = @scope
+    else
+      redirect_to login_path
+    end
   end
 
   def create
