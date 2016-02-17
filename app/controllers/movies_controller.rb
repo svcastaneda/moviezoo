@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     @movie.imdb_id = params[:imdb_id]
 
     if @movie.save
-      add_genres(movie.genre, @movie.id) if movie.genre
+      add_genres(movie.genre, @movie.id) if @movie.genre
       redirect_to '/'
     else
       render template: 'movies/new'
