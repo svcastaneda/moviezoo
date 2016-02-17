@@ -1,9 +1,11 @@
 class ReviewsController < ApplicationController
 
-def new
-  end
+  # def new
+  # end
 
   def create
+    p params
+    redirect_to '/'
   end
 
   def edit
