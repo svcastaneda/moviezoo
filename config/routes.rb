@@ -18,9 +18,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :reviews do
-    resources :pops
-  end
+  # resources :reviews do
+  #   resources :pops, only: [:create, :update]
+  # end
+
+  post '/reviews/:review_id/pops/:type', to: 'pops#create', as: 'kernz'
+  patch '/reviews/:review_id/pops/:id/:type', to: 'pops#update', as: 'update_kern'
+
 
   resources :classifications, only: [:show, :index]
 

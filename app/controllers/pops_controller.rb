@@ -5,8 +5,8 @@ class PopsController < ApplicationController
 
   def update
     pop = Pop.where(review_id: params[:review_id], user_id: current_user.id)
+
     pop.popped = params[:value]
-    redirect_to '/'
   end
 
   private
@@ -14,6 +14,5 @@ class PopsController < ApplicationController
   def current_user
     return nil if session[:user_id].nil?
     User.find_by(id: session[:user_id])
-    redirect_to movie_path(params[:movie_id])
   end
 end
