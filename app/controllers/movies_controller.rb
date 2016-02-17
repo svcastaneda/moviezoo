@@ -27,6 +27,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @comment = Comment.last
+    @user= user = User.find(@comment.user_id)
     render template: 'movies/show'
   end
 
