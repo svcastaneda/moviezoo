@@ -1,22 +1,20 @@
-<%if user_voted?(review.id)%>
-  <%=link_to "POPIT", review_pop_path(review, id: Pop.where(review_id: review.id, user_id: current_user.id), value: 1, movie_id: movie.id), method: :patch %>
-<%else%>
-  <%=link_to "POPIT", review_pops_path(review, value: 1, movie_id: movie.id), method: :post %>
-<%end%>
-<% if review.pops.sum(:popped) > 0 %>
-  <%= "Popped" %>
-<% else %>
-  <%= "Kernz" %>
-<% end %>
-<%if user_voted?(review.id)%>
- <%=link_to "KEEP IT KERNZ", review_pop_path(review, id: Pop.where(review_id: review.id, user_id: current_user.id), value: -1, movie_id: movie.id), method: :patch %>
-<%else%>
-  <%=link_to "KEEP IT KERNZ", review_pops_path(review, value: -1, movie_id: movie.id), method: :post %>
-<%end%>
+<div class='vote block center'>
+  <% if user_voted?(current_user) %>
+    <%= link_to "POP IT", update_kern_path(review_id: review.id, id: get_pop(review), type: 'upvote'), html: {name: 'upvote', class: 'upvote'}, method: :patch %><br>
+    <span class='count'><%= review.pops.sum(:popped) %></span><br>
+    <%= link_to "KERNZ", update_kern_path(review_id: review.id, id: get_pop(review), type: 'downvote'), html: {name: 'downvote', class: 'downvote'}, method: :patch %><br>
+  <% else %>
+    <%= link_to "POP IT", kernz_path(review_id: review.id, type: 'upvote'), html: {name: 'upvote', class: 'upvote new_pop vote'}, method: :post %><br>
+    <span class='count'><%= review.pops.sum(:popped) %></span><br>
+    <%= link_to "KERNZ", kernz_path(review_id: review.id, type: 'downvote'), html: {name: 'downvote', class: 'downvote new_pop vote'}, method: :post %><br>
+  <% end %>
+</div>
 
-<%user=User.find(review.user_id)%>
-<%=user.username%>
-<%= "TRUSTED USER" if user.trusted%>
-<%=review.rating%>
-<%=review.body%>
-<%=link_to "#{review.comments.length} comments", review_comments_path(review) %>
+<div class='review block'>
+  <%user=User.find(review.user_id)%>
+  <h5 class='noMargin'><%=user.username%> rated this film a: <%=review.rating%> </h5>
+  <%= "TRUSTED USER" if user.trusted%>
+  <div class='comment-pad'><%=review.body%></div>
+  <div class='buttons-pad'><%=link_to "#{review.comments.length} comments", review_comments_path(review) %>
+  <%=link_to "delete", review_path(review), method: :delete, class: 'btn' %></div>
+</div>

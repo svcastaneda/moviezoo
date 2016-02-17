@@ -1,9 +1,29 @@
+.name-pad {
+  padding-left: 3%;
+}
+
+.comment-pad{
+  padding-left: 7%;
+}
+
+.buttons-pad{
+  padding-left:11%;
+}
+
+.comment-box{
+  border-left: 1.5px solid #8eb2af;
+}
+
+.rating{
+  color: #2C3539;
+}
+
 .hidden-text {
   color: transparent;
 }
 
 .btn {
-	background-color: #ffcc80 !important;
+	background-color: #5C2533 !important;
 }
 
 .paradiso {
@@ -79,3 +99,23 @@ header h4 {
   line-height: 20px;
 }
 
+.block {
+  display: inline-block;
+  float: left;
+}
+
+.growWithChild {
+  overflow: hidden;
+}
+
+.addLeftBorder {
+  border-left: 1.5px solid #8eb2af;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.vote {
+  margin: 0 1em;
+}

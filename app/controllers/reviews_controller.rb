@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     movie = Movie.find_by(id: params[:movie_id])
 
     review = Review.new(body: review_params[:body], rating: review_params[:rating], user_id: current_user.id, movie_id: movie.id)
-    
+
     if review.save
       if request.xhr?
         render partial: 'movies/review_partial', locals: {review: review, movie: movie}, layout: false
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
         redirect_to movie_path(movie)
       end
     else
-      # @errors = @review.errors.full_messages
+      # @errors = review.errors.full_messages
       # render 'movies/show', locals: {:movie => movie}
       redirect_to movie_path(movie)
     end
@@ -25,6 +25,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find_by(id: params[:id])
+    movie_id = @review.movie_id
+    @review.destroy
+    redirect_to movie_path(movie_id)
   end
 
   private

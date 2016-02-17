@@ -12,28 +12,28 @@
 
 <div class='left-align'>
 	<% if current_user %>
-	  <%= form_for :review, url: reviews_path, html: {id: :new_review_form}, remote: true do |f| %>
-	    <div class='row'>
-	      <%= f.label :body, class: 's12' %>
-	      <%= f.text_area :body, class: 'review_form_body s5' %>
-	    </div>
-	    <div class='row'>
-	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
-        <span id="rating_value">3</span>
-	      <%= f.range_field :rating, min: 1, max: 5, class: 'col s3', id: "slider" %>
-	    </div>
+    <% if !user_reviewed?(@movie.id) %>
+  	  <%= form_for :review, url: reviews_path, html: {id: :new_review_form}, remote: true do |f| %>
+  	    <div class='row'>
+  	      <%= f.label :body, class: 's12' %>
+  	      <%= f.text_area :body, placeholder: 'Write a review', class: 'review_form_body s5' %>
+  	    </div>
+  	    <div class='row'>
+  	      <%= f.label :rating, 'Rating:', class: 'col s1' %>
+  	      <span id="rating_value">3</span>
+          <%= f.range_field :rating, min: 1, max: 5, class: 'col s3', id: "slider" %>
+  	    </div>
 
-	    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
-	    <%= f.submit 'submit', class: 'btn' %>
-	  <% end %>
+  	    <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+  	    <%= f.submit 'submit', class: 'btn' %>
+  	  <% end %>
+    <% end %>
 	<% end %>
 
   <ul class='reviews_section'>
-  <%if @movie.reviews.length == 0%>
-    <p>No reviews for this movie!</p>
-  <%else%>
+  <%if @movie.reviews.length > 0%>
     <% @movie.reviews.each do |review| %>
-       <li><%=render partial: 'review_partial', locals:{review: review, movie: @movie} %></li>
+       <li class='growWithChild addLeftBorder'><%=render partial: 'review_partial', locals:{review: review, movie: @movie} %></li>
     <%end%>
   <%end%>
   </ul>

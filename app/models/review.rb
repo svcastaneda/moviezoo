@@ -3,6 +3,6 @@ class Review < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :movie
-  has_many :pops
-  has_many :comments, as: :commentable
+  has_many :pops, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 end
