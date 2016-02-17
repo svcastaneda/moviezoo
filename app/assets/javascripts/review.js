@@ -1,4 +1,10 @@
 $(function() {
+  $("#slider").change(function(){
+    var newValue = $('#slider').val();
+    $("#rating_value").html(newValue);
+  });
+
+
   $("#new_review_form").on('submit', function() {
     return $("#new_review_form").on("ajax:success", function(e, data, status, xhr) {
     new_review_form = this;

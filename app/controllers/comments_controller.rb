@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @commented_thing = @scope
     comment = @commented_thing.comments.new(body: params[:comment][:body], user_id: current_user.id)
     if comment.save
-      redirect_to movie_path(@commented_thing)
+      redirect_to movie_comments_path(@commented_thing)
     end
   end
 
